@@ -7,3 +7,8 @@ services:
       POSTGRES_PASSWORD: guest
     ports:
       - 5432:5432
+  cache:
+    image: umudik/fookie-cache
+    env_file: .env 
+    ports:
+      - 2626:2626

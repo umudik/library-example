@@ -21,7 +21,8 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "fookie": "^0.9.906",
-    "fookie-databases": "0.0.12"
+    "fookie-cache": "^0.1.3",
+    "fookie-databases": "0.0.13"
   },
   "devDependencies": {
     "jest": "^29.1.2"

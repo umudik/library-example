@@ -35,8 +35,42 @@
 
 
     // this might be discusting solution.
-    setInterval(() => {
-
+    setInterval(async () => {
+        const read_book_res = await fookie.run({
+            token: process.env.SYSTEM_TOKEN,
+            model: "book",
+            method: "read",
+        })
+        const books = read_book_res.data
+        for (book of books) {
+            const read_scores_res = await fookie.run({
+                token: process.env.SYSTEM_TOKEN,
+                model: "score",
+                method: "read",
+                query: {
+                    filter: {
+                        book: book.id
+                    }
+                }
+            })
+            const scores = read_scores_res.data
+            const avarage = fookie.lodash.sumBy(scores, "score") / scores.length
+            console.log(avarage);
+            await fookie.run({
+                token: process.env.SYSTEM_TOKEN,
+                model: "book",
+                method: "update",
+                query: {
+                    filter: {
+                        id: book.id
+                    }
+                },
+                body: {
+                    avarage_score: avarage
+                }
+            })
+        }
         console.log("calculating avarage score");
-    }, 1000 * 120);
+    }, 1000 * 20);
+
 })()
