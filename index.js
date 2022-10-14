@@ -54,7 +54,7 @@
                 }
             })
             const scores = read_scores_res.data
-            const avarage = fookie.lodash.sumBy(scores, "score") / scores.length
+            const avarage = (fookie.lodash.sumBy(scores, "score") / scores.length) || book.avarage_score
             console.log(avarage);
             await fookie.run({
                 token: process.env.SYSTEM_TOKEN,
@@ -71,6 +71,6 @@
             })
         }
         console.log("calculating avarage score");
-    }, 1000 * 20);
+    }, 1000 * 100000);
 
 })()
