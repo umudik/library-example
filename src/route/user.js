@@ -11,7 +11,7 @@ router.post('/:user_id/borrow/:book_id', async (req, res) => {
             book: parseInt(req.params.book_id),
         }
     }
-    console.log(payload);
+
     const response = await req.fookie.run(payload)
     res.json(response)
 })
