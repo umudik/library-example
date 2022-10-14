@@ -31,4 +31,12 @@
 
     app.listen(3000)
     console.log("done.");
+
+
+
+    // this might be discusting solution.
+    setInterval(() => {
+
+        console.log("calculating avarage score");
+    }, 1000 * 120);
 })()

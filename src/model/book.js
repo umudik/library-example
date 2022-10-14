@@ -7,6 +7,10 @@ module.exports = async function (ctx) {
                 type: "string",
                 required: true,
             },
+            avarage_score: {
+                type: "number",
+                default: 0
+            },
         },
         lifecycle: {
             create: { role: ["system"] },

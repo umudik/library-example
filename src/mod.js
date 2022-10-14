@@ -1,5 +1,5 @@
 const fookie = require("fookie")
-const databases = require("../../../fookie/databases")
+const databases = require("fookie-databases")
 module.exports = async function () {
     await fookie.init()
     await fookie.use(databases.postgresql)
