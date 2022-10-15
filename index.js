@@ -2,6 +2,9 @@
     require("dotenv").config()
     const createCrud = require("./src/route/create_crud.js")
     const user = require("./src/route/user.js")
+    const book = require("./src/route/book.js")
+    const borrow = require("./src/route/borrow.js")
+    const score = require("./src/route/score.js")
     const express = require("express")
     const bodyparser = require("body-parser")
     const fookie = await require("./src/mod.js")()
@@ -25,10 +28,10 @@
     });
 
     // Routes
-    app.use("/books", createCrud("book"));
+    app.use("/books", book);
     app.use("/users", user);
-    app.use("/scores", createCrud("score"));
-    app.use("/borrows", createCrud("borrow"));
+    app.use("/scores", score);
+    app.use("/borrows", borrow);
 
     // Routines
     await fookie.use(avarage_score)
