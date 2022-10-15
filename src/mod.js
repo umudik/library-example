@@ -1,5 +1,5 @@
 const fookie = require("fookie")
-const databases = require("fookie-databases")
+const databases = require("../../../fookie/databases")
 const cache = require("fookie-cache")
 module.exports = async function () {
     await fookie.init()
