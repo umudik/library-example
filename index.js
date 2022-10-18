@@ -36,8 +36,6 @@
     // Routines
     await fookie.use(avarage_score)
 
-
-
     app.listen(3000)
     console.log("done.");
 
